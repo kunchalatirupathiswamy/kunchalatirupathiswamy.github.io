@@ -1,406 +1,531 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tirupathi Swamy Kunchala | Data Analyst</title>
-<meta name="description" content="Portfolio of Tirupathi Swamy Kunchala, a fresher data analyst skilled in Power BI, Tableau, Excel, SQL and Python.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #FFFFFF;
-    --alt: #F3F6FA;
-    --surface: #FFFFFF;
-    --ink: #0F1E38;
-    --muted: #526078;
-    --line: #DCE3EC;
-    --accent: #0E7C86;
-    --accent-ink: #FFFFFF;
-    --display: "Manrope", "Segoe UI", system-ui, sans-serif;
-    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
-    --radius: 8px;
-    box-sizing: border-box;
-    padding-top: env(safe-area-inset-top, 0px);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0E1523;
-      --alt: #121B2C;
-      --surface: #172238;
-      --ink: #E8EDF5;
-      --muted: #9AA8BD;
-      --line: #263450;
-      --accent: #3CC3CE;
-      --accent-ink: #06222A;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #0E1523;
-    --alt: #121B2C;
-    --surface: #172238;
-    --ink: #E8EDF5;
-    --muted: #9AA8BD;
-    --line: #263450;
-    --accent: #3CC3CE;
-    --accent-ink: #06222A;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px); scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 1.125rem;
-    line-height: 1.65;
-    overflow-x: hidden;
-  }
-  a { color: var(--accent); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  h1, h2, h3 { font-family: var(--display); color: var(--ink); margin: 0; }
-
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-  /* Top bar */
-  .topbar {
-    position: sticky;
-    top: env(safe-area-inset-top, 0px);
-    z-index: 20;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
-  }
-  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 64px; }
-  .brand { font-family: var(--display); font-weight: 800; font-size: 1.05rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
-  .topbar nav { display: flex; gap: 4px; overflow-x: auto; }
-  .topbar nav a {
-    color: var(--muted);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: var(--radius);
-    white-space: nowrap;
-  }
-  .topbar nav a:hover { color: var(--ink); background: var(--alt); }
-  .topbar nav a.active { color: var(--accent); }
-
-  /* Buttons */
-  .btn {
-    display: inline-block;
-    padding: 12px 22px;
-    border-radius: var(--radius);
-    border: 1px solid var(--accent);
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    line-height: 1.2;
-  }
-  .btn.primary { background: var(--accent); color: var(--accent-ink); }
-  .btn.primary:hover { filter: brightness(0.92); }
-  .btn.secondary { background: transparent; color: var(--accent); }
-  .btn.secondary:hover { background: var(--alt); }
-
-  /* Hero */
-  .hero { padding: 72px 0 80px; }
-  .hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
-  .hero h1 { font-weight: 800; font-size: clamp(2.4rem, 5.4vw, 3.75rem); line-height: 1.05; letter-spacing: -0.025em; }
-  .hero .role { font-family: var(--display); font-weight: 600; font-size: 1.3rem; color: var(--accent); margin: 14px 0 20px; }
-  .hero .summary { max-width: 52ch; color: var(--muted); margin: 0 0 30px; }
-  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-  .snapshot { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-  .snapshot h2 { font-size: 1.05rem; padding: 16px 22px; border-bottom: 1px solid var(--line); }
-  .snapshot dl { margin: 0; padding: 6px 22px 10px; }
-  .snapshot .row { padding: 12px 0; border-bottom: 1px solid var(--line); }
-  .snapshot .row:last-child { border-bottom: 0; }
-  .snapshot dt { color: var(--muted); font-size: 0.95rem; }
-  .snapshot dd { margin: 2px 0 0; font-weight: 600; line-height: 1.4; }
-
-  /* Sections */
-  section.block { padding: 80px 0; }
-  section.alt { background: var(--alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  section.block h2 { font-weight: 800; font-size: clamp(1.7rem, 3.6vw, 2.25rem); letter-spacing: -0.02em; line-height: 1.15; }
-  section.block .sub { color: var(--muted); margin: 10px 0 36px; max-width: 60ch; }
-
-  .about-text { max-width: 68ch; margin: 24px 0 0; }
-  .about-text p { margin: 0 0 16px; }
-
-  .skill-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-  .panel h3 { font-size: 1.1rem; margin-bottom: 14px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-  .tags li {
-    padding: 5px 12px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--bg);
-    font-size: 0.98rem;
-    font-weight: 600;
-  }
-
-  /* Projects */
-  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .project { display: flex; flex-direction: column; gap: 14px; }
-  .project h3 { font-size: 1.25rem; line-height: 1.25; }
-  .project p { margin: 0; color: var(--muted); }
-  .project .tags li { font-size: 0.9rem; padding: 3px 10px; }
-  .project .link { margin-top: auto; font-weight: 600; text-decoration: none; }
-  .project .link:hover { text-decoration: underline; }
-  .more { margin-top: 28px; }
-
-  /* Experience / education */
-  .entry { display: grid; grid-template-columns: 200px 1fr; gap: 8px 32px; padding: 26px 0; border-top: 1px solid var(--line); }
-  section.block h2 + .entry { margin-top: 32px; border-top: 0; padding-top: 0; }
-  .entry .when { color: var(--muted); font-size: 1rem; font-weight: 600; }
-  .entry h3 { font-size: 1.2rem; margin-bottom: 2px; }
-  .entry .org { color: var(--muted); margin: 0 0 10px; }
-  .entry ul { margin: 0; padding-left: 20px; }
-  .entry li { margin: 0 0 6px; }
-  .entry p { margin: 0; }
-
-  .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .cert h3 { font-size: 1.15rem; margin-bottom: 4px; }
-  .cert p { margin: 0; color: var(--muted); }
-
-  /* Contact */
-  .contact-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px; }
-  .contact-box p { margin: 12px 0 26px; color: var(--muted); max-width: 56ch; }
-  .contact-box .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-  .contact-box .email { margin: 22px 0 0; color: var(--ink); font-weight: 600; word-break: break-all; }
-  .contact-box .email a { color: var(--ink); }
-
-  footer { padding: 32px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.98rem; }
-
-  @media (max-width: 820px) {
-    .hero { padding: 48px 0 56px; }
-    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
-    .skill-cols, .project-grid, .cert-grid { grid-template-columns: 1fr; }
-    .entry { grid-template-columns: 1fr; gap: 4px; }
-    section.block { padding: 56px 0; }
-    .contact-box { padding: 26px 22px; }
-    .topbar .wrap { flex-direction: column; align-items: flex-start; gap: 0; padding-top: 10px; }
-    .topbar nav { width: 100%; margin: 0 -12px; padding-bottom: 6px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-  }
-</style>
-</head>
-<body>
-
-<header class="topbar">
-  <div class="wrap">
-    <a class="brand" href="#top">Tirupathi Swamy Kunchala</a>
-    <nav aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="top">
-  <!-- Hero -->
-  <section class="hero" aria-label="Introduction">
-    <div class="wrap">
-      <div>
-        <h1>Tirupathi Swamy Kunchala</h1>
-        <p class="role">Data Analyst (Fresher)</p>
-        <p class="summary">I clean and explore data, find the patterns in it, and present them in dashboards using Power BI, Tableau and Excel. I'm looking for a Data Analyst or Analyst Trainee role.</p>
-        <div class="actions">
-          <a class="btn primary" href="#projects">View projects</a>
-          <a class="btn secondary" href="#contact">Contact me</a>
-        </div>
-      </div>
-      <aside class="snapshot" aria-label="At a glance">
-        <h2>At a glance</h2>
-        <dl>
-          <div class="row"><dt>Degree</dt><dd>B.Tech, Computer Science and Data Science</dd></div>
-          <div class="row"><dt>College</dt><dd>QIS College of Engineering and Technology, 2022 to 2026</dd></div>
-          <div class="row"><dt>Tools</dt><dd>Power BI, Tableau, Excel, SQL, Python</dd></div>
-          <div class="row"><dt>Looking for</dt><dd>Data Analyst and Analyst Trainee roles</dd></div>
-        </dl>
-      </aside>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="block alt" id="about" aria-labelledby="about-h">
-    <div class="wrap">
-      <h2 id="about-h">About me</h2>
-      <div class="about-text">
-        <p>I'm completing a B.Tech in Computer Science and Data Science at QIS College of Engineering and Technology. My work focuses on turning raw data into something people can act on: cleaning it, exploring it for trends, and building dashboards that show the results clearly.</p>
-        <p>I have built dashboards in Power BI, analysed a 9,551-row restaurant dataset during a data analysis internship at Cognifyz Technologies, and created an Excel workbook that tracks credit and debit transaction KPIs.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section class="block" id="skills" aria-labelledby="skills-h">
-    <div class="wrap">
-      <h2 id="skills-h">Skills</h2>
-      <p class="sub">The tools I use and the analysis work I do with them.</p>
-      <div class="skill-cols">
-        <div class="panel">
-          <h3>Tools</h3>
-          <ul class="tags">
-            <li>Power BI</li><li>Tableau</li><li>Excel</li><li>SQL (MySQL)</li><li>Python</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h3>Analysis</h3>
-          <ul class="tags">
-            <li>Data cleaning</li><li>Exploratory data analysis</li><li>Dashboard creation</li><li>Trend analysis</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section class="block alt" id="projects" aria-labelledby="projects-h">
-    <div class="wrap">
-      <h2 id="projects-h">Projects</h2>
-      <p class="sub">Dashboards and analysis work built with real datasets.</p>
-      <div class="project-grid">
-        <article class="panel project">
-          <h3>Healthcare Analysis Dashboard</h3>
-          <ul class="tags"><li>Power BI</li></ul>
-          <p>An interactive dashboard on hospital and patient data, covering admissions, revenue, disease patterns and demographics.</p>
-          <a class="link" href="https://github.com/kunchalatirupathiswamy/Healthcare_Analysis" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article>
-
-        <article class="panel project">
-          <h3>IPL Analysis Dashboard</h3>
-          <ul class="tags"><li>Power BI</li><li>DAX</li></ul>
-          <p>An interactive dashboard on IPL data, built with DAX measures so a viewer can explore the numbers through visuals.</p>
-        </article>
-
-        <article class="panel project">
-          <h3>Restaurant Data Analysis</h3>
-          <ul class="tags"><li>Cognifyz internship</li></ul>
-          <p>Analysis of a dataset of 9,551 restaurants across 21 columns, covering data exploration, preprocessing, descriptive analysis and geospatial analysis.</p>
-        </article>
-
-        <article class="panel project">
-          <h3>Credit and Debit Transaction Analysis</h3>
-          <ul class="tags"><li>Excel</li></ul>
-          <p>A workbook of transaction KPIs, each computed and charted. Branch Transaction Growth is shown as a waterfall chart to see which branches are growing or declining.</p>
-        </article>
-      </div>
-      <p class="more"><a class="btn secondary" href="https://github.com/kunchalatirupathiswamy?tab=repositories" target="_blank" rel="noopener noreferrer">See all repositories on GitHub</a></p>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section class="block" id="experience" aria-labelledby="experience-h">
-    <div class="wrap">
-      <h2 id="experience-h">Experience</h2>
-      <div class="entry">
-        <div class="when">Internship</div>
-        <div>
-          <h3>Data Analysis Intern</h3>
-          <p class="org">Cognifyz Technologies</p>
-          <ul>
-            <li>Worked with a restaurant dataset of 9,551 rows and 21 columns.</li>
-            <li>Completed data exploration and preprocessing, descriptive analysis and geospatial analysis tasks.</li>
-            <li>Organised the work in a separate file for each level of the internship.</li>
-          </ul>
-        </div>
-      </div>
-
-      <h2 style="margin-top:56px;font-size:1.5rem">Certifications</h2>
-      <div class="cert-grid" style="margin-top:24px">
-        <div class="panel cert">
-          <h3>Data Analytics Essentials</h3>
-          <p>Cisco</p>
-        </div>
-        <div class="panel cert">
-          <h3>Data Analytics Job Simulation</h3>
-          <p>Deloitte, on Forage</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section class="block alt" id="education" aria-labelledby="education-h">
-    <div class="wrap">
-      <h2 id="education-h">Education</h2>
-      <div class="entry">
-        <div class="when">2022 to 2026</div>
-        <div>
-          <h3>B.Tech, Computer Science and Data Science</h3>
-          <p class="org">QIS College of Engineering and Technology</p>
-          <p>CGPA: 7.56</p>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="when">2020 to 2022</div>
-        <div>
-          <h3>Intermediate (MPC)</h3>
-          <p class="org">Sri Chaitanya Jr. College</p>
-          <p>Score: 73%</p>
-        </div>
-      </div>
-      <div class="entry">
-        <div class="when">2019 to 2020</div>
-        <div>
-          <h3>Secondary</h3>
-          <p class="org">Sri Pratibha High School</p>
-          <p>Score: 97%</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="block" id="contact" aria-labelledby="contact-h">
-    <div class="wrap">
-      <div class="contact-box">
-        <h2 id="contact-h">Contact</h2>
-        <p>I'm looking for a Data Analyst or Analyst Trainee role. Send me a message and I'll reply as soon as I can.</p>
-        <div class="actions">
-          <a class="btn primary" href="mailto:tirupathiswamykunchala@gmail.com">Email me</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/tirupathi-swamy-kunchala-986300273" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn secondary" href="https://github.com/kunchalatirupathiswamy" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-        <p class="email">Email: <a href="mailto:tirupathiswamykunchala@gmail.com">tirupathiswamykunchala@gmail.com</a></p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">Tirupathi Swamy Kunchala</div>
-</footer>
-
-<script>
-  (function () {
-    var links = document.querySelectorAll(".topbar nav a");
-    var map = {};
-    links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
-    if (!("IntersectionObserver" in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          links.forEach(function (a) { a.classList.remove("active"); });
-          if (map[e.target.id]) map[e.target.id].classList.add("active");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirupathi Swamy Kunchala | Data Analyst Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
         }
-      });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    Object.keys(map).forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) io.observe(el);
-    });
-  })();
-</script>
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        code, pre { font-family: 'JetBrains Mono', monospace; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            border: 1px solid rgba(51, 65, 85, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="#top" class="text-xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent hover:opacity-80 transition">
+                    TSK<span class="text-slate-400 font-normal text-sm ml-2 hidden sm:inline">| Data Analyst</span>
+                </a>
+                
+                <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-teal-600 dark:hover:text-teal-400 transition">About</a>
+                    <a href="#skills" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Skills</a>
+                    <a href="#projects" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Projects</a>
+                    <a href="#analytics" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Live Dashboard</a>
+                    <a href="#experience" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Experience</a>
+                    <a href="#education" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Education</a>
+                    <a href="#contact" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Contact</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <button id="themeToggle" class="p-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block"></i>
+                    </button>
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm font-medium shadow-sm shadow-teal-500/20 transition">
+                        <i class="fa-regular fa-paper-plane"></i> Hire Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+
+        <!-- Hero Section -->
+        <section id="top" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-6">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    Available for Data Analyst & Analyst Trainee Roles
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                    Hi, I'm <span class="bg-gradient-to-r from-teal-600 to-cyan-500 bg-clip-text text-transparent">Tirupathi Swamy Kunchala</span>
+                </h1>
+
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+                    Computer Science & Data Science Graduate proficient in turning raw data into actionable insights using <strong class="text-slate-900 dark:text-slate-100 font-semibold">Power BI, Tableau, SQL, Excel, and Python</strong>. Focused on descriptive analysis, KPI tracking, and interactive dashboard creation.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#projects" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-medium shadow-lg shadow-teal-500/20 flex items-center gap-2 transition">
+                        <i class="fa-solid fa-chart-line"></i> Explore Projects
+                    </a>
+                    <a href="#contact" class="px-6 py-3 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl font-medium flex items-center gap-2 transition">
+                        <i class="fa-regular fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5">
+                <div class="glass-card p-6 rounded-2xl shadow-xl space-y-4">
+                    <div class="flex items-center gap-4 pb-4 border-b border-slate-200 dark:border-slate-700">
+                        <img src="WhatsApp Image 2026-09-18 at 9.48.20 AM.jpeg" alt="Tirupathi Swamy Kunchala Profile Photo" class="w-20 h-20 rounded-full object-cover border-2 border-teal-500 shadow-md">
+                        <div>
+                            <h2 class="font-bold text-lg">Snapshot</h2>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Fresher • Open to Relocation</p>
+                        </div>
+                    </div>
+
+                    <dl class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Degree:</dt>
+                            <dd class="font-medium text-right">B.Tech (CS & Data Science)</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">CGPA:</dt>
+                            <dd class="font-semibold text-teal-600 dark:text-teal-400">7.56 / 10</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">College:</dt>
+                            <dd class="font-medium text-right">QIS College of Eng. & Tech</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Key Tools:</dt>
+                            <dd class="font-medium text-right">Power BI, Tableau, SQL, Excel</dd>
+                        </div>
+                        <div class="flex justify-between">
+                            <dt class="text-slate-500 dark:text-slate-400">Mobile / WhatsApp:</dt>
+                            <dd class="font-medium text-right text-teal-600 dark:text-teal-400">+91 7893582989</dd>
+                        </div>
+                    </dl>
+
+                    <div class="pt-2">
+                        <div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-lg flex justify-between items-center text-xs">
+                            <span class="flex items-center gap-2"><i class="fa-brands fa-github"></i> Repositories</span>
+                            <a href="https://github.com/kunchalatirupathiswamy" target="_blank" class="text-teal-600 dark:text-teal-400 font-semibold hover:underline">@kunchalatirupathiswamy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="scroll-mt-20">
+            <div class="glass-card p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                    <i class="fa-solid fa-user-check text-teal-600"></i> Objective & About Me
+                </h2>
+                <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+                    <p>
+                        I am completing a B.Tech in Computer Science and Data Science at QIS College of Engineering and Technology (2022–2026). My core interest lies in translating complex numerical datasets into intuitive visual storytelling that supports business decision-making.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="scroll-mt-20 space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <i class="fa-solid fa-code text-teal-600"></i> Technical Skills
+                </h2>
+                <p class="text-slate-500 text-sm">Core technologies, libraries, and analytical competencies</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- BI & Visualization -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4 text-teal-600">
+                        <i class="fa-solid fa-chart-pie text-xl"></i>
+                        <h3 class="font-bold text-slate-900 dark:text-white">Visualization & BI</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                        <li class="flex justify-between items-center"><span>Power BI (DAX, Data Modeling)</span> <span class="text-xs px-2 py-0.5 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded">Advanced</span></li>
+                        <li class="flex justify-between items-center"><span>Tableau Desktop</span> <span class="text-xs px-2 py-0.5 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded">Intermediate</span></li>
+                        <li class="flex justify-between items-center"><span>Microsoft Excel (KPIs, Charts)</span> <span class="text-xs px-2 py-0.5 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded">Advanced</span></li>
+                    </ul>
+                </div>
+
+                <!-- Database & Programming -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <div class="flex items-center gap-3 mb-4 text-teal-600">
+                        <i class="fa-solid fa-database text-xl"></i>
+                        <h3 class="font-bold text-slate-900 dark:text-white">Querying & Code</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                        <li class="flex justify-between items-center"><span>SQL (MySQL Queries, Joins)</span> <span class="text-xs px-2 py-0.5 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded">Intermediate</span></li>
+                        <li class="flex justify-between items-center"><span>Python (Pandas, NumPy)</span> <span class="text-xs px-2 py-0.5 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded">Intermediate</span></li>
+                        <li class="flex justify-between items-center"><span>Data Preprocessing</span> <span class="text-xs px-2 py-0.5 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 rounded">Intermediate</span></li>
+                    </ul>
+                </div>
+
+                <!-- Domain Analytics -->
+                <div class="glass-card p-6 rounded-2xl md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-4 text-teal-600">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                        <h3 class="font-bold text-slate-900 dark:text-white">Analytical Methods</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                        <li class="flex justify-between items-center"><span>Exploratory Data Analysis (EDA)</span> <i class="fa-solid fa-check text-teal-500"></i></li>
+                        <li class="flex justify-between items-center"><span>Geospatial Analysis</span> <i class="fa-solid fa-check text-teal-500"></i></li>
+                        <li class="flex justify-between items-center"><span>Trend & Growth Tracking</span> <i class="fa-solid fa-check text-teal-500"></i></li>
+                        <li class="flex justify-between items-center"><span>Data Cleaning & Transformation</span> <i class="fa-solid fa-check text-teal-500"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="scroll-mt-20 space-y-6">
+            <div class="flex flex-col md:flex-row justify-between md:items-end gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold flex items-center gap-3">
+                        <i class="fa-solid fa-diagram-project text-teal-600"></i> Featured Analytics Projects
+                    </h2>
+                    <p class="text-slate-500 text-sm">Real datasets transformed into business intelligence assets</p>
+                </div>
+                <a href="https://github.com/kunchalatirupathiswamy?tab=repositories" target="_blank" class="text-sm font-medium text-teal-600 hover:text-teal-700 flex items-center gap-1">
+                    View GitHub Repositories <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 text-xs font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 rounded-md">Power BI</span>
+                            <a href="https://github.com/kunchalatirupathiswamy/Healthcare_Analysis" target="_blank" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                                <i class="fa-brands fa-github text-xl"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Healthcare Analysis Dashboard</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                            Interactive Power BI system analyzing hospital performance, patient admission metrics, revenue streams, disease prevalence patterns, and patient demographic distributions.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Interactive Visuals • DAX</span>
+                        <a href="https://github.com/kunchalatirupathiswamy/Healthcare_Analysis" target="_blank" class="font-semibold text-teal-600 hover:underline">View Code & Specs →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex gap-2">
+                                <span class="px-2.5 py-1 text-xs font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 rounded-md">Power BI</span>
+                                <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 rounded-md">DAX</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">IPL Cricket Analytics Dashboard</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                            A dynamic cricket analytics dashboard built using complex DAX measures to calculate match performance KPIs, team metrics, and player breakdown trends visually.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Data Modeling • Visual Measures</span>
+                        <a href="https://github.com/kunchalatirupathiswamy?tab=repositories" target="_blank" class="font-semibold text-teal-600 hover:underline">View Code & Specs →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 text-xs font-semibold bg-teal-100 text-teal-700 dark:bg-teal-900/50 dark:text-teal-300 rounded-md">Cognifyz Internship</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Restaurant Dataset (9,551 Records)</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                            End-to-end data cleaning, EDA, price tier profiling, and geospatial mapping across 21 columns to identify top cuisines and regional restaurant densities.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Geospatial EDA • Cleaning</span>
+                        <a href="https://github.com/kunchalatirupathiswamy?tab=repositories" target="_blank" class="font-semibold text-teal-600 hover:underline">View Code & Specs →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-teal-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300 rounded-md">Advanced Excel</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Credit & Debit Transaction Analytics</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                            Financial KPI tracking workbook incorporating waterfall charts to analyze branch-level transaction growth and identify key drivers of performance gains or declines.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Waterfall Chart • KPI Modeling</span>
+                        <a href="https://github.com/kunchalatirupathiswamy?tab=repositories" target="_blank" class="font-semibold text-teal-600 hover:underline">View Code & Specs →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Analytics Sandbox -->
+        <section id="analytics" class="scroll-mt-20">
+            <div class="glass-card p-6 rounded-2xl border border-teal-500/20 shadow-lg space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-chart-bar text-teal-600"></i> Interactive Data Dashboard Sandbox
+                        </h2>
+                        <p class="text-xs text-slate-500">Live sample dataset visualization powered by Chart.js</p>
+                    </div>
+                    <select id="dataFilter" class="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-teal-500">
+                        <option value="all">All Regions</option>
+                        <option value="north">North Branch</option>
+                        <option value="south">South Branch</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700/50">
+                        <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Quarterly Revenue Growth</h4>
+                        <div class="h-56">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700/50">
+                        <h4 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Category Channel Share</h4>
+                        <div class="h-56">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Internship Section -->
+        <section id="experience" class="scroll-mt-20 space-y-6">
+            <h2 class="text-2xl font-bold flex items-center gap-3">
+                <i class="fa-solid fa-briefcase text-teal-600"></i> Practical Experience
+            </h2>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-8 relative">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold">Data Analysis Intern</h3>
+                        <p class="text-teal-600 dark:text-teal-400 font-medium text-sm">Cognifyz Technologies</p>
+                    </div>
+                    <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-xs font-medium rounded-full self-start sm:self-auto">Virtual Internship</span>
+                </div>
+
+                <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                    <li>Processed and prepared a comprehensive restaurant dataset featuring <strong>9,551 entries across 21 parameters</strong>.</li>
+                    <li>Executed multi-level tasks including missing value treatment, descriptive statistics computation, and price range evaluation.</li>
+                    <li>Performed geospatial mapping to pinpoint restaurant concentrations and geographical distribution trends.</li>
+                    <li>Structured deliverables methodically across organized code modules and level-based documentation files.</li>
+                </ul>
+            </div>
+
+            <!-- Certifications Grid -->
+            <div class="pt-4">
+                <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-certificate text-teal-600"></i> Verified Certifications
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-950 flex items-center justify-center text-teal-600 dark:text-teal-400">
+                            <i class="fa-solid fa-award text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Data Analytics Essentials</h4>
+                            <p class="text-xs text-slate-500">Cisco Networking Academy</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-950 flex items-center justify-center text-teal-600 dark:text-teal-400">
+                            <i class="fa-solid fa-award text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Data Analytics Job Simulation</h4>
+                            <p class="text-xs text-slate-500">Deloitte (Forage)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="scroll-mt-20 space-y-6">
+            <h2 class="text-2xl font-bold flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-teal-600"></i> Education History
+            </h2>
+
+            <div class="space-y-4">
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                    <div>
+                        <span class="text-xs font-semibold text-teal-600 dark:text-teal-400">2022 — 2026</span>
+                        <h3 class="text-lg font-bold">B.Tech in Computer Science and Data Science</h3>
+                        <p class="text-sm text-slate-500">QIS College of Engineering and Technology</p>
+                    </div>
+                    <div class="text-right sm:border-l sm:pl-6 border-slate-200 dark:border-slate-700">
+                        <span class="text-xs text-slate-400">Cumulative Grade</span>
+                        <p class="text-xl font-bold text-teal-600 dark:text-teal-400">7.56 CGPA</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass-card p-5 rounded-2xl flex justify-between items-center">
+                        <div>
+                            <span class="text-xs text-slate-400">2020 — 2022</span>
+                            <h4 class="font-bold text-sm">Intermediate (MPC)</h4>
+                            <p class="text-xs text-slate-500">Sri Chaitanya Jr. College</p>
+                        </div>
+                        <span class="text-xl font-bold text-teal-600 dark:text-teal-400">73%</span>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-2xl flex justify-between items-center">
+                        <div>
+                            <span class="text-xs text-slate-400">2019 — 2020</span>
+                            <h4 class="font-bold text-sm">Secondary Schooling</h4>
+                            <p class="text-xs text-slate-500">Sri Pratibha High School</p>
+                        </div>
+                        <span class="text-xl font-bold text-teal-600 dark:text-teal-400">97%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="scroll-mt-20">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl text-center space-y-6 bg-gradient-to-b from-white to-teal-50/50 dark:from-slate-800 dark:to-slate-900">
+                <h2 class="text-3xl font-extrabold">Let's Connect</h2>
+                <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto text-sm sm:text-base">
+                    I am actively seeking entry-level Data Analyst, Junior Analyst, or Analyst Trainee opportunities. Feel free to reach out directly via phone, WhatsApp, email, or social platforms!
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4 pt-2">
+                    <a href="tel:+917893582989" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-medium shadow-md shadow-teal-500/20 flex items-center gap-2 transition">
+                        <i class="fa-solid fa-phone"></i> +91 7893582989
+                    </a>
+                    <a href="https://wa.me/917893582989" target="_blank" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-medium shadow-md shadow-emerald-500/20 flex items-center gap-2 transition">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                    </a>
+                    <a href="mailto:tirupathiswamykunchala@gmail.com" class="px-6 py-3 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl font-medium flex items-center gap-2 transition">
+                        <i class="fa-regular fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/tirupathi-swamy-kunchala-986300273" target="_blank" class="px-6 py-3 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl font-medium flex items-center gap-2 transition">
+                        <i class="fa-brands fa-linkedin text-blue-600"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/kunchalatirupathiswamy" target="_blank" class="px-6 py-3 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl font-medium flex items-center gap-2 transition">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 mt-20 py-8 text-center text-xs text-slate-500">
+        <p>© 2026 Tirupathi Swamy Kunchala. Built for Data Analytics Excellence.</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Chart.js Visualization Sandbox setup
+        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+        const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+
+        const revenueData = {
+            all: [12, 19, 14, 25],
+            north: [7, 11, 8, 15],
+            south: [5, 8, 6, 10]
+        };
+
+        const revenueChart = new Chart(ctxRevenue, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Revenue ($K)',
+                    data: revenueData.all,
+                    borderColor: '#0d9488',
+                    backgroundColor: 'rgba(13, 148, 136, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        const categoryChart = new Chart(ctxCategory, {
+            type: 'doughnut',
+            data: {
+                labels: ['Direct', 'Referral', 'Social'],
+                datasets: [{
+                    data: [55, 25, 20],
+                    backgroundColor: ['#0d9488', '#06b6d4', '#64748b']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        document.getElementById('dataFilter').addEventListener('change', (e) => {
+            const val = e.target.value;
+            revenueChart.data.datasets[0].data = revenueData[val];
+            revenueChart.update();
+        });
+    </script>
 </body>
 </html>
